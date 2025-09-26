@@ -89,11 +89,6 @@ terraform_destroy:
       - name: Terraform Init
         run: terraform init
 
-      # Step 5: Preview the infrastructure changes
       - name: Terraform Destroy
-        run: terraform destroy
-
-      # Step 6: Apply the infrastructure changes
-      - name: Terraform Apply
-        run: terraform apply -auto-approve # Auto-approve flag skips manual confirmation
+        run: terraform destroy -auto-approve
         

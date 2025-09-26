@@ -87,8 +87,11 @@ jobs:
 
       # Step 4: Initialize Terraform working directory
       - name: Terraform Init
-        run: terraform init
-
+        run: terraform init \
+          -backend-config="bucket=githubactionsandwordpress" \
+          -backend-config="key=terraform.tfstate" \
+          -backend-config="region=${{ vars.AWS_REGION }}" \
+          
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
         

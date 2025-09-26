@@ -56,7 +56,7 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve # Auto-approve flag skips manual confirmation
         
-terraform_destroy:
+  terraform_destroy:
     name: "Terraform_destroy"
     # Condition to run this job only when 'Terraform_destroy' is selected
     if: ${{ github.event.inputs.action == 'Terraform_destroy' }}

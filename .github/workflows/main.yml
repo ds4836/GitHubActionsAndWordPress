@@ -46,7 +46,10 @@ jobs:
 
       # Step 4: Initialize Terraform working directory
       - name: Terraform Init
-        run: terraform init
+        run: terraform init \
+          -backend-config="bucket=githubactionsandwordpress" \
+          -backend-config="key=terraform.tfstate" \
+          -backend-config="region=${{ vars.AWS_REGION }}" \
 
       # Step 5: Preview the infrastructure changes
       - name: Terraform Plan
